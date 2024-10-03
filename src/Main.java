@@ -231,7 +231,10 @@ public class Main {
      */
 
     /* APARTAT a): ¿A qué método o métodos podemos llamar si tenemos una List<Snake>?
-        Podem implementar tots els mètodes de la superclasse Animal, encara que haurem de fer un Overwrite
+        Podem cridar als dos metodes strongest1 i strongest2, sempre i quan l'objecte Snake, implementi la
+        funció compareTo
+
+       APARTAT b):
      */
 
 
@@ -260,6 +263,12 @@ public class Main {
 
         }
     }
+
+    /////////////////////////Exercici 7 Inici////////////////////////
+
+
+
+    /////////////////////////Exercici 7 final////////////////////////
 
 
 }
