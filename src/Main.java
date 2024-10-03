@@ -60,9 +60,10 @@ public class Main {
     }
 
 
-    public static void bossOfEachDepartment (List< ? super Engineer> engineersList,
+    public static void bossOfEachDepartment (List< Engineer > engineersList,
                                             List<Department> departments){
-
+       //Llista vuida que contindrà tots els jefes de departament
+       List<Engineer> jefesDepartamentos = new ArrayList<>();
        Iterator<Department> itDep = departments.iterator();
        Department dep;
 
@@ -71,15 +72,15 @@ public class Main {
            engineersList.add(dep.getHead());
        }
 
-       infoOfEachBoss();
+       infoOfEachBoss(engineersList);
    }
 
    /*
    TODO ficar paràmetres dins de la funciÓ
     */
-   public static void infoOfEachBoss() {
+   public static void infoOfEachBoss(List <Engineer> engineerList ) {
 
-       Iterator<? super Engineer> itEng = engineersList.iterator();
+       Iterator<Engineer> itEng = engineerList.iterator();
        Engineer eng;
        System.out.println("La nostra llista d'Enginyers conté:");
        while (itEng.hasNext()){
