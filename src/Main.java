@@ -3,27 +3,27 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        int opcio = 1;
-
-    while (opcio != 0) {
-
-        System.out.println("Quin exercici vols comprovar (1 -- 10), prem 0 per sortir");
-        opcio = sc.nextInt();
-
-        switch (opcio) {
-            case 0 :
-                System.out.println("Adeu!"); break;
-            case 1 : exerciciUn(); break; // aqui tambe falta algo
-            case 2 : exerciciDos(); break; //Falta generalitzar la capsalera del codi amb comodins wtf
-            case 3 :
-                System.out.println("Exercici teòric"); break;
-            case 4 : exerciciQuatre(); break;
-            default:
-                System.out.println("Sergio introdueix un numero vàlid! saps llegir?");
-        }
-    }
-
+//        Scanner sc = new Scanner(System.in);
+//        int opcio = 1;
+//
+//    while (opcio != 0) {
+//
+//        System.out.println("Quin exercici vols comprovar (1 -- 10), prem 0 per sortir");
+//        opcio = sc.nextInt();
+//
+//        switch (opcio) {
+//            case 0 :
+//                System.out.println("Adeu!"); break;
+//            case 1 : exerciciUn(); break; // aqui tambe falta algo
+//            case 2 : exerciciDos(); break; //Falta generalitzar la capsalera del codi amb comodins wtf
+//            case 3 :
+//                System.out.println("Exercici teòric"); break;
+//            case 4 : exerciciQuatre(); break;
+//            default:
+//                System.out.println("Sergio introdueix un numero vàlid! saps llegir?");
+//        }
+//    }
+        exerciciSis();
     }
 
 
@@ -247,18 +247,23 @@ public class Main {
         List <Integer> lista = Arrays.asList(1, 1 ,2 ,2, 3, 3,4 ,4 ,5 ,5 ,6);
         debup(lista);
     }
-    
+
     public static void debup ( List<Integer> lista ) {
 
         int aux = 0;
         List <Integer> newList = new ArrayList<>();
         Iterator<Integer> it = lista.iterator();
 
-        if (aux == it.next()) {
+    while (it.hasNext()) {
 
+        int newInt = it.next();
+        if (aux == newInt) {
+            it.remove();
         } else {
-
+            aux = newInt;
         }
+    }
+
     }
 
 
