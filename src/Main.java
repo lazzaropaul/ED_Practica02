@@ -83,7 +83,7 @@ public class Main {
        Engineer eng;
        System.out.println("La nostra llista d'Enginyers conté:");
        while (itEng.hasNext()){
-           eng = itEng.next();
+           eng = itEng.next();lqwefdlasf
            System.out.println("Jefe Departament " + eng.getIdDepartment() +
                    ", Dni: " + eng.getDni());
        }
