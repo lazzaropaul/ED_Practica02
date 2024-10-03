@@ -244,11 +244,21 @@ public class Main {
                     /////////////////////////Exercici 6 Inici////////////////////////
     public static void exerciciSis (){
 
-        List <Integer> list = new ArrayList<>();
+        List <Integer> lista = Arrays.asList(1, 1 ,2 ,2, 3, 3,4 ,4 ,5 ,5 ,6);
+        debup(lista);
     }
     
-    public static void debup ( List<Object> lista ) {
+    public static void debup ( List<Integer> lista ) {
 
+        int aux = 0;
+        List <Integer> newList = new ArrayList<>();
+        Iterator<Integer> it = lista.iterator();
+
+        if (aux == it.next()) {
+
+        } else {
+
+        }
     }
 
 
