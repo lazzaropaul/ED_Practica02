@@ -257,13 +257,16 @@ public class Main {
     while (it.hasNext()) {
 
         int newInt = it.next();
-        if (aux == newInt) {
-            it.remove();
+        if (aux != newInt) {
+            newList.add(newInt);
+            aux = newInt;
         } else {
             aux = newInt;
         }
     }
-
+        for(int i = 0; i < newList.size(); i++){
+            System.out.println(newList.get(i));
+        }
     }
 
 
