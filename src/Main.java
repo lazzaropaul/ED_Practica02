@@ -235,28 +235,26 @@ public class Main {
      */
 
 
-
-
-
                     /////////////////////////Exercici 5 final////////////////////////
 
 
                     /////////////////////////Exercici 6 Inici////////////////////////
     public static void exerciciSis (){
 
-        List <Integer> lista = Arrays.asList(1, 1 ,2 ,2, 3, 3,4 ,4 ,5 ,5 ,6);
-        debup(lista);
+        List <Integer> listaInts = Arrays.asList(1,1,1,2,3,3,4,5,2,5,2,5,6);
+        List <String> listaStrings = Arrays.asList("Hola" , "Hol", "Hol" , "Adeu" , "Adeu");
+        debup(listaStrings);
     }
 
-    public static void debup ( List<Integer> lista ) {
+    public static <E> void debup ( List<E> lista ) {
 
-        int aux = 0;
-        List <Integer> newList = new ArrayList<>();
-        Iterator<Integer> it = lista.iterator();
+        E aux = null;
+        List <E> newList = new ArrayList<>();
+        Iterator<E> it = lista.iterator();
 
     while (it.hasNext()) {
 
-        int newInt = it.next();
+        E newInt = it.next();
         if (aux != newInt) {
             newList.add(newInt);
             aux = newInt;
@@ -268,6 +266,11 @@ public class Main {
             System.out.println(newList.get(i));
         }
     }
+
+                    /////////////////////////Exercici 6 final////////////////////////
+
+                    /////////////////////////Exercici 7 Inici////////////////////////
+
 
 
 }
