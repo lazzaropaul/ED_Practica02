@@ -272,5 +272,19 @@ public class Main {
                     /////////////////////////Exercici 7 Inici////////////////////////
 
 
+    public static void exerciciSet () {
+
+        List<Integer> list = Arrays.asList(20, 10 , 5 , 13 , 60 , 43, 2, 35);
+        Iterator <Integer> it = list.iterator();
+
+        greaterThan(it , 20);
+
+    }
+
+    public static <E extends Comparable <? super E>> List<E> greaterThan (Iterator<E> it, E sample) {
+
+    }
+
+                /////////////////////////Exercici 7 final////////////////////////
 
 }
