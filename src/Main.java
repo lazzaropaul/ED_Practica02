@@ -235,36 +235,56 @@ public class Main {
      */
 
 
-
-
-
                     /////////////////////////Exercici 5 final////////////////////////
 
 
                     /////////////////////////Exercici 6 Inici////////////////////////
     public static void exerciciSis (){
 
-        List <Integer> lista = Arrays.asList(1, 1 ,2 ,2, 3, 3,4 ,4 ,5 ,5 ,6);
-        debup(lista);
+        List <Integer> listaInts = Arrays.asList(1,1,1,2,3,3,4,5,2,5,2,5,6);
+        List <String> listaStrings = Arrays.asList("Hola" , "Hol", "Hol" , "Adeu" , "Adeu");
+        debup(listaStrings);
     }
 
-    public static void debup ( List<Integer> lista ) {
+    public static <E> void debup ( List<E> lista ) {
 
-        int aux = 0;
-        List <Integer> newList = new ArrayList<>();
-        Iterator<Integer> it = lista.iterator();
+        E aux = null;
+        List <E> newList = new ArrayList<>();
+        Iterator<E> it = lista.iterator();
 
     while (it.hasNext()) {
 
-        int newInt = it.next();
-        if (aux == newInt) {
-            it.remove();
+        E newInt = it.next();
+        if (aux != newInt) {
+            newList.add(newInt);
+            aux = newInt;
         } else {
             aux = newInt;
         }
     }
+        for(int i = 0; i < newList.size(); i++){
+            System.out.println(newList.get(i));
+        }
+    }
+
+                    /////////////////////////Exercici 6 final////////////////////////
+
+                    /////////////////////////Exercici 7 Inici////////////////////////
+
+
+    public static void exerciciSet () {
+
+        List<Integer> list = Arrays.asList(20, 10 , 5 , 13 , 60 , 43, 2, 35);
+        Iterator <Integer> it = list.iterator();
+
+        greaterThan(it , 20);
 
     }
 
+    public static <E extends Comparable <? super E>> List<E> greaterThan (Iterator<E> it, E sample) {
+
+    }
+
+                /////////////////////////Exercici 7 final////////////////////////
 
 }
