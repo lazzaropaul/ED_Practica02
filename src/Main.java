@@ -3,30 +3,27 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-//        Scanner sc = new Scanner(System.in);
-//        int opcio = 1;
-//
-//    while (opcio != 0) {
-//
-//        System.out.println("Quin exercici vols comprovar (1 -- 10), prem 0 per sortir");
-//        opcio = sc.nextInt();
-//
-//        switch (opcio) {
-//            case 0 :
-//                System.out.println("Adeu!"); break;
-//            case 1 : exerciciUn(); break; // aqui tambe falta algo
-//            case 2 : exerciciDos(); break; //Falta generalitzar la capsalera del codi amb comodins wtf
-//            case 3 :
-//                System.out.println("Exercici teòric"); break;
-//            case 4 : exerciciQuatre(); break;
-//              case 5;
-//              case6;
-//              case 7;
-//            default:
-//                System.out.println("Sergio introdueix un numero vàlid! saps llegir?");
-//        }
-//    }
-        exerciciSet();
+        Scanner sc = new Scanner(System.in);
+        int opcio = 1;
+
+    while (opcio != 0) {
+
+        System.out.println("Quin exercici vols comprovar (1 -- 10), prem 0 per sortir");
+        opcio = sc.nextInt();
+
+        switch (opcio) {
+            case 0 :
+                System.out.println("Adeu!"); break;
+            case 1 : exerciciUn(); break; // aqui tambe falta algo
+            case 2 : exerciciDos(); break; //Falta generalitzar la capsalera del codi amb comodins wtf
+            case 3 :
+                System.out.println("Exercici teòric"); break;
+            case 4 : exerciciQuatre(); break;
+            default:
+                System.out.println("Sergio introdueix un numero vàlid! saps llegir?");
+        }
+    }
+
     }
 
 
@@ -87,7 +84,7 @@ public class Main {
        Engineer eng;
        System.out.println("La nostra llista d'Enginyers conté:");
        while (itEng.hasNext()){
-           eng = itEng.next();
+           eng = itEng.next();lqwefdlasf
            System.out.println("Jefe Departament " + eng.getIdDepartment() +
                    ", Dni: " + eng.getDni());
        }
@@ -234,8 +231,14 @@ public class Main {
      */
 
     /* APARTAT a): ¿A qué método o métodos podemos llamar si tenemos una List<Snake>?
-        Podem implementar tots els mètodes de la superclasse Animal, encara que haurem de fer un Overwrite
+        Podem cridar als dos metodes strongest1 i strongest2, sempre i quan l'objecte Snake, implementi la
+        funció compareTo
+
+       APARTAT b):
      */
+
+
+
 
 
                     /////////////////////////Exercici 5 final////////////////////////
@@ -244,66 +247,28 @@ public class Main {
                     /////////////////////////Exercici 6 Inici////////////////////////
     public static void exerciciSis (){
 
-        List <Integer> listaInts = Arrays.asList(1,1,1,2,3,3,4,5,2,5,2,5,6);
-        List <String> listaStrings = Arrays.asList("Hola" , "Hol", "Hol" , "Adeu" , "Adeu");
-        debup(listaStrings);
+        List <Integer> lista = Arrays.asList(1, 1 ,2 ,2, 3, 3,4 ,4 ,5 ,5 ,6);
+        debup(lista);
     }
+    
+    public static void debup ( List<Integer> lista ) {
 
-    public static <E> void debup ( List<E> lista ) {
+        int aux = 0;
+        List <Integer> newList = new ArrayList<>();
+        Iterator<Integer> it = lista.iterator();
 
-        E aux = null;
-        List <E> newList = new ArrayList<>();
-        Iterator<E> it = lista.iterator();
+        if (aux == it.next()) {
 
-    while (it.hasNext()) {
-
-        E newInt = it.next();
-        if (aux != newInt) {
-            newList.add(newInt);
-            aux = newInt;
         } else {
-            aux = newInt;
-        }
-    }
-        for(int i = 0; i < newList.size(); i++){
-            System.out.println(newList.get(i));
+
         }
     }
 
-                    /////////////////////////Exercici 6 final////////////////////////
-
-                    /////////////////////////Exercici 7 Inici////////////////////////
+    /////////////////////////Exercici 7 Inici////////////////////////
 
 
-    public static void exerciciSet () {
 
-        List<Integer> list = Arrays.asList(20, 10 , 5 , 13 , 60 , 43, 2, 35);
-        Iterator <Integer> it = list.iterator();
-        List <String> strings = Arrays.asList("Hola" , "pene", "hol");
-        //El orden lexicográfico significa que las cadenas se comparan carácter por carácter,
-        //basándose en los valores Unicode de los caracteres.
-        Iterator <String> it1 = strings.iterator();
+    /////////////////////////Exercici 7 final////////////////////////
 
-        greaterThan(it , 20);
-        greaterThan(it1 , "hola");
 
-    }
-
-    public static <E extends Comparable <? super E>> List<E> greaterThan (Iterator<E> it, E sample) {
-        List <E> newList = new ArrayList<>();
-
-        while (it.hasNext()) {
-            E aux = it.next();
-            if ( aux.compareTo(sample) > 0  ) { //elementos cuyo valor comparado con sample sea mayor que cero
-                newList.add(aux);
-            }
-        }
-        for (int i = 0; i < newList.size(); i++) {
-            System.out.println(newList.get(i));
-        }
-
-        return newList;
-    }
-
-                /////////////////////////Exercici 7 final////////////////////////
 }
