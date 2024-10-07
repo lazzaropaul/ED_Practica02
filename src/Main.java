@@ -3,31 +3,34 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        int opcio = 1;
-
-    while (opcio != 0) {
-
-        System.out.println("Quin exercici vols comprovar (1 -- 10), prem 0 per sortir");
-        opcio = sc.nextInt();
-
-        switch (opcio) {
-            case 0 :
-                System.out.println("Adeu!"); break;
-            case 1 : exerciciUn(); break; // aqui tambe falta algo
-            case 2 : exerciciDos(); break; //Falta generalitzar la capsalera del codi amb comodins wtf
-            case 3 :
-                System.out.println("Exercici teòric"); break;
-            case 4 : exerciciQuatre(); break;
-            default:
-                System.out.println("Sergio introdueix un numero vàlid! saps llegir?");
-        }
+//        Scanner sc = new Scanner(System.in);
+//        int opcio = 1;
+//
+//    while (opcio != 0) {
+//
+//        System.out.println("Quin exercici vols comprovar (1 -- 10), prem 0 per sortir");
+//        opcio = sc.nextInt();
+//
+//        switch (opcio) {
+//            case 0 :
+//                System.out.println("Adeu!"); break;
+//            case 1 : exerciciUn(); break; // aqui tambe falta algo
+//            case 2 : exerciciDos(); break; //Falta generalitzar la capsalera del codi amb comodins wtf
+//            case 3 :
+//                System.out.println("Exercici teòric"); break;
+//            case 4 : exerciciQuatre(); break;
+//              case 5;
+//              case6;
+//              case 7;
+//            default:
+//                System.out.println("Sergio introdueix un numero vàlid! saps llegir?");
+//        }
+//    }
+        exerciciSet();
     }
 
-    }
 
-
-                /////////////////////////Exercici 1 Inici//////////////////////////////
+    /////////////////////////Exercici 1 Inici//////////////////////////////
 
 
 
@@ -61,41 +64,41 @@ public class Main {
 
 
     public static void bossOfEachDepartment (List< Engineer > engineersList,
-                                            List<Department> departments){
-       //Llista vuida que contindrà tots els jefes de departament
-       List<Engineer> jefesDepartamentos = new ArrayList<>();
-       Iterator<Department> itDep = departments.iterator();
-       Department dep;
+                                             List<Department> departments){
+        //Llista vuida que contindrà tots els jefes de departament
+        List<Engineer> jefesDepartamentos = new ArrayList<>();
+        Iterator<Department> itDep = departments.iterator();
+        Department dep;
 
-       while (itDep.hasNext()){
-           dep = itDep.next();
-           engineersList.add(dep.getHead());
-       }
+        while (itDep.hasNext()){
+            dep = itDep.next();
+            engineersList.add(dep.getHead());
+        }
 
-       infoOfEachBoss(engineersList);
-   }
+        infoOfEachBoss(engineersList);
+    }
 
-   /*
-   TODO ficar paràmetres dins de la funciÓ
-    */
-   public static void infoOfEachBoss(List <Engineer> engineerList ) {
+    /*
+    TODO ficar paràmetres dins de la funciÓ
+     */
+    public static void infoOfEachBoss(List <Engineer> engineerList ) {
 
-       Iterator<Engineer> itEng = engineerList.iterator();
-       Engineer eng;
-       System.out.println("La nostra llista d'Enginyers conté:");
-       while (itEng.hasNext()){
-           eng = itEng.next();lqwefdlasf
-           System.out.println("Jefe Departament " + eng.getIdDepartment() +
-                   ", Dni: " + eng.getDni());
-       }
-   }
-
-
-             /////////////////////////Exercici 1 Final/////////////////////////
+        Iterator<Engineer> itEng = engineerList.iterator();
+        Engineer eng;
+        System.out.println("La nostra llista d'Enginyers conté:");
+        while (itEng.hasNext()){
+            eng = itEng.next();
+            System.out.println("Jefe Departament " + eng.getIdDepartment() +
+                    ", Dni: " + eng.getDni());
+        }
+    }
 
 
+    /////////////////////////Exercici 1 Final/////////////////////////
 
-            /////////////////////////Exercici 2 Inici//////////////////////////
+
+
+    /////////////////////////Exercici 2 Inici//////////////////////////
 
     public static void exerciciDos() {
 
@@ -135,11 +138,11 @@ public class Main {
         }
     }
 
-                /////////////////////////Exercici 2 Final/////////////////////////
+    /////////////////////////Exercici 2 Final/////////////////////////
 
 
 
-                 /////////////////////////Exercici 3 Inici////////////////////////
+    /////////////////////////Exercici 3 Inici////////////////////////
 
     /*
       La implementació del mètode "equals()" és incorrecte ja que en aquest mètode comparem atributs que
@@ -170,10 +173,10 @@ public class Main {
       }
      */
 
-                 /////////////////////////Exercici 3 Final/////////////////////////
+    /////////////////////////Exercici 3 Final/////////////////////////
 
 
-                /////////////////////////Exercici 4 Inici////////////////////////
+    /////////////////////////Exercici 4 Inici////////////////////////
 
     public static void exerciciQuatre() {
 
@@ -201,9 +204,9 @@ public class Main {
         return true;
     }
 
-                    /////////////////////////Exercici 4 Final/////////////////////////
+    /////////////////////////Exercici 4 Final/////////////////////////
 
-                    /////////////////////////Exercici 5 Inici////////////////////////
+    /////////////////////////Exercici 5 Inici////////////////////////
 
     /*  QUE ÉS "Comparable<E>"?:
 
@@ -231,44 +234,76 @@ public class Main {
      */
 
     /* APARTAT a): ¿A qué método o métodos podemos llamar si tenemos una List<Snake>?
-        Podem cridar als dos metodes strongest1 i strongest2, sempre i quan l'objecte Snake, implementi la
-        funció compareTo
-
-       APARTAT b):
+        Podem implementar tots els mètodes de la superclasse Animal, encara que haurem de fer un Overwrite
      */
 
 
+    /////////////////////////Exercici 5 final////////////////////////
 
 
-
-                    /////////////////////////Exercici 5 final////////////////////////
-
-
-                    /////////////////////////Exercici 6 Inici////////////////////////
+    /////////////////////////Exercici 6 Inici////////////////////////
     public static void exerciciSis (){
 
-        List <Integer> lista = Arrays.asList(1, 1 ,2 ,2, 3, 3,4 ,4 ,5 ,5 ,6);
-        debup(lista);
+        List <Integer> listaInts = Arrays.asList(1,1,1,2,3,3,4,5,2,5,2,5,6);
+        List <String> listaStrings = Arrays.asList("Hola" , "Hol", "Hol" , "Adeu" , "Adeu");
+        debup(listaStrings);
     }
-    
-    public static void debup ( List<Integer> lista ) {
 
-        int aux = 0;
-        List <Integer> newList = new ArrayList<>();
-        Iterator<Integer> it = lista.iterator();
+    public static <E> void debup ( List<E> lista ) {
 
-        if (aux == it.next()) {
+        E aux = null;
+        List <E> newList = new ArrayList<>();
+        Iterator<E> it = lista.iterator();
 
-        } else {
+        while (it.hasNext()) {
 
+            E newInt = it.next();
+            if (aux != newInt) {
+                newList.add(newInt);
+                aux = newInt;
+            } else {
+                aux = newInt;
+            }
+        }
+        for(int i = 0; i < newList.size(); i++){
+            System.out.println(newList.get(i));
         }
     }
+
+    /////////////////////////Exercici 6 final////////////////////////
 
     /////////////////////////Exercici 7 Inici////////////////////////
 
 
+    public static void exerciciSet () {
+
+        List<Integer> list = Arrays.asList(20, 10 , 5 , 13 , 60 , 43, 2, 35);
+        Iterator <Integer> it = list.iterator();
+        List <String> strings = Arrays.asList("Hola" , "pene", "hol");
+        //El orden lexicográfico significa que las cadenas se comparan carácter por carácter,
+        //basándose en los valores Unicode de los caracteres.
+        Iterator <String> it1 = strings.iterator();
+
+        greaterThan(it , 20);
+        greaterThan(it1 , "hola");
+
+    }
+
+    public static <E extends Comparable <? super E>> List<E> greaterThan (Iterator<E> it, E sample) {
+        List <E> newList = new ArrayList<>();
+
+        while (it.hasNext()) {
+            E aux = it.next();
+            if ( aux.compareTo(sample) > 0  ) { //elementos cuyo valor comparado con sample sea mayor que cero
+                newList.add(aux);
+            }
+        }
+        for (int i = 0; i < newList.size(); i++) {
+            System.out.println(newList.get(i));
+        }
+
+        return newList;
+    }
 
     /////////////////////////Exercici 7 final////////////////////////
-
-
 }
