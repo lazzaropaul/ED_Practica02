@@ -234,8 +234,13 @@ public class Main {
      */
 
     /* APARTAT a): ¿A qué método o métodos podemos llamar si tenemos una List<Snake>?
-        Podem implementar tots els mètodes de la superclasse Animal, encara que haurem de fer un Overwrite
-     */
+        Podrem cridar a "strongest1" sempre i quan la classe Snake implementi el "Comparable", i per consequencia
+        la funció compareTo. En el cas de strongest2, sempre podrem cridar a aquest mètode perquè el mètode permet
+        que Snake sigui comparat amb la seva superclase, ja que Snake penja d'Animal i Animal és comparable
+
+       APARTAT b): ¿A qué método o métodos podemos llamar si tenemos una List<Animal>?
+        No podem cridar a cap mètode ja que Animal és una classe abstracta
+    */
 
 
     /////////////////////////Exercici 5 final////////////////////////
