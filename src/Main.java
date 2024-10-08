@@ -19,11 +19,14 @@ public class Main {
 //            case 3 :
 //                System.out.println("Exercici teòric"); break;
 //            case 4 : exerciciQuatre(); break;
+//              case 5;
+//              case6;
+//              case 7;
 //            default:
 //                System.out.println("Sergio introdueix un numero vàlid! saps llegir?");
 //        }
 //    }
-        exerciciSis();
+        exerciciSet();
     }
 
 
@@ -237,7 +240,7 @@ public class Main {
 
        APARTAT b): ¿A qué método o métodos podemos llamar si tenemos una List<Animal>?
         No podem cridar a cap mètode ja que Animal és una classe abstracta
-     */
+    */
 
 
     /////////////////////////Exercici 5 final////////////////////////
@@ -281,17 +284,44 @@ public class Main {
 
         List<Integer> list = Arrays.asList(20, 10 , 5 , 13 , 60 , 43, 2, 35);
         Iterator <Integer> it = list.iterator();
+        List <String> strings = Arrays.asList("Hola" , "pene", "hol");
+        //El orden lexicográfico significa que las cadenas se comparan carácter por carácter,
+        //basándose en los valores Unicode de los caracteres.
+        Iterator <String> it1 = strings.iterator();
 
         greaterThan(it , 20);
+        greaterThan(it1 , "hola");
 
     }
 
     public static <E extends Comparable <? super E>> List<E> greaterThan (Iterator<E> it, E sample) {
+        List <E> newList = new ArrayList<>();
 
+        while (it.hasNext()) {
+            E aux = it.next();
+            if ( aux.compareTo(sample) > 0  ) { //elementos cuyo valor comparado con sample sea mayor que cero
+                newList.add(aux);
+            }
+        }
+        for (int i = 0; i < newList.size(); i++) {
+            System.out.println(newList.get(i));
+        }
+
+        return newList;
     }
 
     /////////////////////////Exercici 7 final////////////////////////
 
+    /////////////////////////Exercici 8 Inici////////////////////////
+    /*
+    TODO: hacer el ejercicio con chat gptttt
+     */
+
+    /////////////////////////Exercici 8 final////////////////////////
+
+    /////////////////////////Exercici 9 inici////////////////////////
 
 
+
+    /////////////////////////Exercici 9 final////////////////////////
 }
