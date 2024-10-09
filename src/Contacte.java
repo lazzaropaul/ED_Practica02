@@ -30,11 +30,11 @@ public class Contacte {
         }
     }
 
-    public void setNom(int telf) {
-        if(telf >= 900000000 && telf <= 999999999){
-            this.telf = telf;
+    public void setNom(String nom) {
+        if(nom.length() >= 2){
+            this.nom = nom;
         } else {
-            System.out.println("No s'ha pogut establir el numero de telefon");
+            System.out.println("No s'ha pogut establir el nom del contacte");
         }
     }
 
