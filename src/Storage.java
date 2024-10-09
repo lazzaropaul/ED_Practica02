@@ -12,14 +12,12 @@ public class Storage<T> {
     public void addItem (T item) {
         //Métode que afegirà un nou element dins la nostra llista de storage
         itemsList.add(item);
-        System.out.println("Nou item afeigit a la llista");
+        System.out.println("Nou item afeigit a la llista correctement");
     }
-    public  void getItems (List <T> list) {
+    public List<T> getItems () {
         //Retorna la llista d'elements de la clase storage
-        System.out.println("La teva llista és: ");
-        for (int i = 0; i < itemsList.size(); i++) {
-            System.out.print(itemsList.get(i) + " ");
-        }
+        System.out.println("Tots els elements de la llista:");
+        return itemsList;
     }
     public void copyTo (Storage <? super T> otherStorage) {
 

@@ -322,16 +322,17 @@ public class Main {
 
     public static void exercici9 ( ) {
 
-        List<Integer> intList = Arrays.asList(1 ,2 ,3 ,4 ,5);
-        List<String> stringList = Arrays.asList("hola" , "pol", "tonto");
-        Storage<Integer> newInt = new Storage<>(intList);
-        Storage<String> newString = new Storage<>(stringList);
-        newString.getItems();
-        newString.addItem("arnau");
-        newString.getItems();
-        newInt.getItems();
+        List <Integer> intList = new ArrayList<>(Arrays.asList(1 ,2 ,3 ,4 ,5));
+        Storage <Integer> newInt = new Storage<>(intList);
+        List <Number> numberList = new ArrayList<>( Arrays.asList(7, 8, 9, 10));
+        Storage <Number> newNumber = new Storage<>(numberList);
+
+        newNumber.addItem(11);
+        System.out.println(newNumber.getItems().toString());
+        //numberList.forEach(System.out::print);
         newInt.addItem(2);
-        newInt.getItems();
+        System.out.println(newInt.getItems().toString());
+        //intList.forEach(System.out::print);
 
     }
 
