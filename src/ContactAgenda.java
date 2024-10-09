@@ -1,11 +1,11 @@
 import java.util.Iterator;
 import java.util.List;
 
-public class ContactAgenda {
-
+public class ContactAgenda  {
     private List<Contacte> contacteAgenda;
 
     public ContactAgenda (List<Contacte> contacteAgenda) {
+
         this.contacteAgenda = contacteAgenda;
     }
 
@@ -13,10 +13,8 @@ public class ContactAgenda {
         //Fer servit métode buscar contacto
     }
     public void getAllContacts (List<Contacte> contactsList) {
-        //utilitza ListIterator
         Iterator<Contacte> contacteIt = contactsList.iterator();
-        contacteIt.forEachRemaining(System.out::print);
-
+        contacteIt.forEachRemaining(System.out::println); //Crida al metode toString de la classe Contacte
     }
     public void searchContact () {
         //Search by name utilizando Listiterator y equals

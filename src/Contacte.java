@@ -11,6 +11,13 @@ public class Contacte {
         this.telf = telf;
     }
     @Override
+    public String toString() {
+        return "Contacte{" +
+                "telf=" + telf +
+                ", nom='" + nom + '\'' +
+                '}';
+    }//Permet sense geters imprimir la informacio del cotnacte a altres classes
+    @Override
     public boolean equals (Object obj) {
         if(obj instanceof Contacte){
             Contacte cont = (Contacte) obj;
@@ -19,6 +26,7 @@ public class Contacte {
         }
         return false;
     }
+
     public int getTelf(){
         return this.telf;
     }

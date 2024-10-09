@@ -26,7 +26,7 @@ public class Main {
 //                System.out.println("Sergio introdueix un numero vàlid! saps llegir?");
 //        }
 //    }
-        exercici9();
+        exerciciDeu();
     }
 
 
@@ -369,13 +369,18 @@ public class Main {
 
 
     /////////////////////////Exercici 10 final////////////////////////
-    List<Contacte> contacteList = new ArrayList<>(
-            Arrays.asList(
-                new Contacte(987987987, "Arnau"),
-                new Contacte(947968179, "Pol"))
-            );
-    ContactAgenda contactAgenda = new ContactAgenda(contacteList);
+    public static void exerciciDeu () {
 
+        List<Contacte> contacteList = new ArrayList<>(
+                Arrays.asList(
+                        new Contacte(987987987, "Arnau"),
+                        new Contacte(947968179, "Pol"),
+                        new Contacte(912345678, "Ibai")
+                ));
+        ContactAgenda contactAgenda = new ContactAgenda(contacteList);
+        contactAgenda.getAllContacts(contacteList);
+
+    }
 
 
     /////////////////////////Exercici 10 final////////////////////////
