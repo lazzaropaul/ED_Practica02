@@ -321,7 +321,9 @@ public class Main {
 
             /////////////////////////Exercici 9 inici////////////////////////
 
+    public static class exercici9 () {
 
+    }
 
             /////////////////////////Exercici 9 final////////////////////////
 }
