@@ -321,19 +321,45 @@ public class Main {
     /////////////////////////Exercici 8 final////////////////////////
 
     public static void exercici9 ( ) {
+         /*
+        • ¿Podemos guardar elementos de tipo Number en un Storage de Integer?
+            No
+        • ¿Podemos guardar elementos de tipo Integer en un Storage de Number?
+            No
+         */
 
-        List <Integer> intList = new ArrayList<>(Arrays.asList(1 ,2 ,3 ,4 ,5));
-        Storage <Integer> newInt = new Storage<>(intList);
+        //Comprovem si Storage funciona correcament
         List <Number> numberList = new ArrayList<>( Arrays.asList(7, 8, 9, 10));
+        List <Integer> intList = new ArrayList<>(Arrays.asList(1 ,2 ,3 ,4 ,5));
+        //Instanciem dos noves Storage
         Storage <Number> newNumber = new Storage<>(numberList);
+        Storage <Integer> newInt = new Storage<>(intList);
 
         newNumber.addItem(11);
         System.out.println(newNumber.getItems().toString());
-        //numberList.forEach(System.out::print);
+
         newInt.addItem(2);
         System.out.println(newInt.getItems().toString());
-        //intList.forEach(System.out::print);
 
+        //numberList.forEach(System.out::print);
+
+        //Veiem que storage si funciona
+
+        //Ara veurem si el sub tipus de Storage, PersonStorage , funciona correctement
+        //Crearem una llista de 2 persones i farem una instancia de PersonStorage
+        Person arnau = new Person("12345678A");
+        Person papa = new Person("87654321B");
+        List<Person> persList = new ArrayList<>(Arrays.asList(arnau, papa));
+        PersonStorage personStorage = new PersonStorage(persList);
+
+        //Comprovarem si el métode copyTo funciona correctement
+        List<Object> objectList = new ArrayList<>();
+        Storage<Object> obj = new Storage<>(objectList);
+        System.out.println(obj.getItems().toString());
+
+        //Observem com hem copiat un element de Person Storage a Storage
+        personStorage.copyTo(obj);
+        System.out.println(obj.getItems().toString());
     }
 
     /////////////////////////Exercici 9 inici////////////////////////
