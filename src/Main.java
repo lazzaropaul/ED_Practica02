@@ -369,8 +369,14 @@ public class Main {
 
 
     /////////////////////////Exercici 10 final////////////////////////
+    List<Contacte> contacteList = new ArrayList<>(
+            Arrays.asList(
+                new Contacte(987987987, "Arnau"),
+                new Contacte(947968179, "Pol"))
+            );
+    ContactAgenda contactAgenda = new ContactAgenda(contacteList);
 
-    Contacte cribi = new Contacte(987987987, "Arnau");
+
 
     /////////////////////////Exercici 10 final////////////////////////
 }
