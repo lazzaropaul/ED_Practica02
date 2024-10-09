@@ -26,7 +26,7 @@ public class Main {
 //                System.out.println("Sergio introdueix un numero vàlid! saps llegir?");
 //        }
 //    }
-        exerciciSet();
+        exercici9();
     }
 
 
@@ -304,7 +304,7 @@ public class Main {
             }
         }
         for (int i = 0; i < newList.size(); i++) {
-            System.out.println(newList.get(i));
+            System.out.print(newList.get(i) + " ");
         }
 
         return newList;
@@ -320,7 +320,18 @@ public class Main {
      */
     /////////////////////////Exercici 8 final////////////////////////
 
-    public static class exercici9 () {
+    public static void exercici9 ( ) {
+
+        List<Integer> intList = Arrays.asList(1 ,2 ,3 ,4 ,5);
+        List<String> stringList = Arrays.asList("hola" , "pol", "tonto");
+        Storage<Integer> newInt = new Storage<>(intList);
+        Storage<String> newString = new Storage<>(stringList);
+        newString.getItems();
+        newString.addItem("arnau");
+        newString.getItems();
+        newInt.getItems();
+        newInt.addItem(2);
+        newInt.getItems();
 
     }
 

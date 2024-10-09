@@ -18,7 +18,7 @@ public class Person {
         if (dni != null && dni.matches("\\d{8}[A-Za-z]")) {
             this.dni = dni;
         } else {
-            throw new IllegalArgumentException("DNI inválido. Debe tener 8 dígitos seguidos de una letra.");
+            throw new IllegalArgumentException("DNI inválido. Debe tener 8 dígitos,  seguidos de una letra.");
         }
     }
 }
