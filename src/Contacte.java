@@ -4,6 +4,11 @@ public class Contacte {
     private int telf;
     private String nom;
 
+    public Contacte(int telf, String nom){
+        this.nom = nom;
+        this.telf = telf;
+    }
+
     @Override
     public boolean equals (Object obj) {
         if(obj instanceof Contacte){

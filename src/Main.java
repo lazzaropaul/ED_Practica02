@@ -328,7 +328,7 @@ public class Main {
 
     /////////////////////////Exercici 10 final////////////////////////
 
-
+    Contacte cribi = new Contacte(987987987, "Arnau");
 
     /////////////////////////Exercici 10 final////////////////////////
 }
