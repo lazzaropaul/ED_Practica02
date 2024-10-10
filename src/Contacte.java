@@ -6,6 +6,11 @@ public class Contacte {
     private int telf;
     private String nom;
 
+    public Contacte(){
+        this.telf = 0;
+        this.nom = "";
+    }
+
     public Contacte(int telf, String nom){
         this.nom = nom;
         this.telf = telf;
@@ -18,6 +23,7 @@ public class Contacte {
                 '}';
     }//Permet sense geters imprimir la informacio del cotnacte a altres classes
     @Override
+
     public boolean equals (Object obj) {
         if(obj instanceof Contacte){
             Contacte cont = (Contacte) obj;
