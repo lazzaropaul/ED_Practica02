@@ -3,41 +3,36 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-//        Scanner sc = new Scanner(System.in);
-//        int opcio = 1;
-//
-//    while (opcio != 0) {
-//
-//        System.out.println("Quin exercici vols comprovar (1 -- 10), prem 0 per sortir");
-//        opcio = sc.nextInt();
-//
-//        switch (opcio) {
-//            case 0 :
-//                System.out.println("Adeu!"); break;
-//            case 1 : exerciciUn(); break; // aqui tambe falta algo
-//            case 2 : exerciciDos(); break; //Falta generalitzar la capsalera del codi amb comodins wtf
-//            case 3 :
-//                System.out.println("Exercici teòric"); break;
-//            case 4 : exerciciQuatre(); break;
-//              case 5;
-//              case6;
-//              case 7;
-//            default:
-//                System.out.println("Sergio introdueix un numero vàlid! saps llegir?");
-//        }
-//    }
-        exerciciDeu();
+        Scanner sc = new Scanner(System.in);
+        int opcio = 1;
+
+    while (opcio != 0) {
+
+        System.out.println("Quin exercici vols comprovar (1 -- 10), prem 0 per sortir");
+        opcio = sc.nextInt();
+
+        switch (opcio) {
+            case 0 :
+                System.out.println("Adeu!"); break;
+            case 1 : exerciciUn(); break; // aqui tambe falta algo
+            case 2 : exerciciDos(); break; //Falta generalitzar la capsalera del codi amb comodins wtf
+            case 4 : exerciciQuatre(); break;
+            case 6 : exerciciSis(); break;
+            case 7 : exerciciSet(); break;
+            case 9 : exercici9(); break;
+            case 10: exerciciDeu(); break;
+            case 3 , 5, 8:
+                System.out.println("Exercici teòric"); break;
+            default:
+                System.out.println("Sergioo, introdueix un numero vàlid!");
+        }
+    }
+
     }
 
 
     /////////////////////////Exercici 1 Inici//////////////////////////////
 
-
-
-    //TODO: Ficar tot aquest codi en una funció "GenerarDades"
-    public static void dataGenerate () {
-
-    }
     public static void exerciciUn(){
         //Llista vuida que contindrà tots els jefes de departament
         List<Engineer> jefesDepartamentos = new ArrayList<>();
@@ -61,8 +56,6 @@ public class Main {
 
         bossOfEachDepartment(jefesDepartamentos , l_dep);
     }
-
-
     public static void bossOfEachDepartment (List< Engineer > engineersList,
                                              List<Department> departments){
         //Llista vuida que contindrà tots els jefes de departament
@@ -96,8 +89,6 @@ public class Main {
 
     /////////////////////////Exercici 1 Final/////////////////////////
 
-
-
     /////////////////////////Exercici 2 Inici//////////////////////////
 
     public static void exerciciDos() {
@@ -115,7 +106,6 @@ public class Main {
         for (int index = 0; index < random.nextInt(10) + 1 ; index++){
             trg.add(index, random.nextInt(20));
         }
-
 
         // Mostrar les llistes abans de la modificació
         System.out.println("Llista src abans de modificar: " + src);
@@ -139,8 +129,6 @@ public class Main {
     }
 
     /////////////////////////Exercici 2 Final/////////////////////////
-
-
 
     /////////////////////////Exercici 3 Inici////////////////////////
 
@@ -174,7 +162,6 @@ public class Main {
      */
 
     /////////////////////////Exercici 3 Final/////////////////////////
-
 
     /////////////////////////Exercici 4 Inici////////////////////////
 
@@ -245,7 +232,6 @@ public class Main {
 
     /////////////////////////Exercici 5 final////////////////////////
 
-
     /////////////////////////Exercici 6 Inici////////////////////////
     public static void exerciciSis (){
 
@@ -312,13 +298,36 @@ public class Main {
 
     /////////////////////////Exercici 7 final////////////////////////
 
-
-
     /////////////////////////Exercici 8 Inici////////////////////////
     /*
-    TODO: hacer el ejercicio con chat gptttt
+
+    1. No habrá problema si pasamos como parámetro de method1 una List<Food>.
+
+       Observem que 'method1' te una restricció genèrica, ens diu
+       que la llista que rebrà, ha d'implementar 'Comparable'.
+       Per tant, a més de que Food() és una classe abstracte i no es pot instanciar,
+       no pdríem pasrar-li una llista de Food(), ja que tampoc implementa 'Comparable'.
+
+       Per tant la conclusió és que NO podríem pasar una List<Food> al metode 1, ja que
+       no implementa 'Comparable'
+
+
+    2. No habrá problema si pasamos como parámetro de method1 y de method2 una List<BigBurger>.
+
+        Ja sabem que el mètode 1 implmenta 'Comparable'. Si passem per paràmetre una List<BigBurguer>
+        tambè implementarà 'Comprable' ja que és un subtipus de Burguer el quàl és un subtipus del
+        supertipus Meat, que si implementa 'Comparable'.
+
+        Si observem el metode 2, tambè incorpora una restricció genèrica 'Comparable'. Per tant
+        sí podriem passar una List<Burguer> sense problema.
+
+        Per tant la conclusió és que no tindriem problema amb cap dels dos mètodes, ja que
+        BigBurguer provè de la classe Meat, que sí implementa 'Comprable'.
+
      */
     /////////////////////////Exercici 8 final////////////////////////
+
+    /////////////////////////Exercici 9 inici////////////////////////
 
     public static void exercici9 ( ) {
          /*
@@ -341,8 +350,6 @@ public class Main {
         newInt.addItem(2);
         System.out.println(newInt.getItems().toString());
 
-        //numberList.forEach(System.out::print);
-
         //Veiem que storage si funciona
 
         //Ara veurem si el sub tipus de Storage, PersonStorage , funciona correctement
@@ -362,11 +369,7 @@ public class Main {
         System.out.println(obj.getItems().toString());
     }
 
-    /////////////////////////Exercici 9 inici////////////////////////
-
-    /////////////////////////Exercici 9 final////////////////////////
-
-
+        /////////////////////////Exercici 9 final////////////////////////
 
     /////////////////////////Exercici 10 final////////////////////////
     public static void exerciciDeu () {
@@ -381,7 +384,6 @@ public class Main {
         contactAgenda.getAllContacts(contacteList);
 
     }
-
 
     /////////////////////////Exercici 10 final////////////////////////
 }
