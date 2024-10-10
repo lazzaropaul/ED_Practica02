@@ -33,6 +33,8 @@ public class ContactAgenda  {
 
         if(!contactFound){
             System.out.println("Contacte no trobat, es retornarà un contacte buit");
+        } else {
+
         }
 
         return contactFound ? aux : new Contacte(); //Si no es troba el contacte, retornem un buit, en cas contrari, retornem el contacte trobat (TERNARIA)

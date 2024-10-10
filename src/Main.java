@@ -70,7 +70,6 @@ public class Main {
 
         infoOfEachBoss(engineersList);
     }
-
     /*
     TODO ficar paràmetres dins de la funciÓ
      */
@@ -344,6 +343,9 @@ public class Main {
         Storage <Number> newNumber = new Storage<>(numberList);
         Storage <Integer> newInt = new Storage<>(intList);
 
+        //newNumber.copyTo(newInt);
+        newInt.copyTo(newNumber);
+
         newNumber.addItem(11);
         System.out.println(newNumber.getItems().toString());
 
@@ -378,10 +380,12 @@ public class Main {
                 Arrays.asList(
                         new Contacte(987987987, "Arnau"),
                         new Contacte(947968179, "Pol"),
-                        new Contacte(912345678, "Ibai")
+                        new Contacte(912345678, "Ibai"),
+                        new Contacte(987987987, "Arnau")
                 ));
         ContactAgenda contactAgenda = new ContactAgenda(contacteList);
         contactAgenda.getAllContacts(contacteList);
+        contactAgenda.searchContact("Arnau");
 
     }
 
