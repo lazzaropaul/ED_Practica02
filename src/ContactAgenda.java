@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -5,13 +6,26 @@ import java.util.ListIterator;
 public class ContactAgenda  {
     private List<Contacte> contacteAgenda;
 
-    public ContactAgenda (List<Contacte> contacteAgenda) {
+    public ContactAgenda () {
+        contacteAgenda = new ArrayList<Contacte>();
+    }
 
+
+    public ContactAgenda (List<Contacte> contacteAgenda) {
         this.contacteAgenda = contacteAgenda;
     }
 
-    public void addContact (int telef) {
+    public void addContact (int telf, String name) {
         //Fer servit métode buscar contacto
+        Contacte newContact = new Contacte();
+        if(searchContact(name).equals(newContact)){
+            System.out.println("El contacte ja existeix");
+        } else {
+            newContact.setTelf(telf);
+            newContact.setNom(name);
+            contacteAgenda.add(newContact);
+            System.out.println(newContact);
+        }
     }
 
     public void getAllContacts (List<Contacte> contactsList) {

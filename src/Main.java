@@ -376,6 +376,32 @@ public class Main {
     /////////////////////////Exercici 10 final////////////////////////
     public static void exerciciDeu () {
 
+        ContactAgenda contactes = new ContactAgenda();
+
+        Scanner sc = new Scanner(System.in);
+        boolean exit = false;
+
+        System.out.println("Benvingut a l'agenda de contactes, tria l'acció a realitzar");
+        int opcio = sc.nextInt();
+        int telf = 0;
+        String nom = "";
+
+        while(opcio != 0 && !exit){
+            switch(opcio){
+                case 0:
+                    exit = true;
+                    break;
+                case 1:
+                    System.out.println("Introdueix el telf");
+                    telf = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Introdueix el nom");
+                    nom = sc.nextLine();
+                    contactes.addContact(telf, nom);
+                    break;
+            }
+        }
+
         List<Contacte> contacteList = new ArrayList<>(
                 Arrays.asList(
                         new Contacte(987987987, "Arnau"),
