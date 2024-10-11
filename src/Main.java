@@ -79,13 +79,31 @@ public class Main {
         }
     }
 
+
+    /*
+    • Si se desea escribir la lista de ingenieros, ¿se puede utilizar el siguiente método?
+        ▪ void printNames(List<Person> lp)
+
+    Sí perquè al rebre una llista de persones simplement la recorreriem i aniriem imprimint
+    la informació de cada Person utilitzant el metode abstracte de la clase Person 'printInfo()'.
+
+        public void printNames (List<Person> lp) {
+        Iterator<Person> itp = lp.iterator();
+        while (itp.hasNext()) {
+            itp.next().printInfo();
+        }
+    }
+
+    • ¿Cómo generalizarías la declaración del método usando comodines?
+           Utilitzariem '? super E', ja que necesitem escriure elements de la llista
+
+     */
+
     /////////////////////////Exercici 1 Final/////////////////////////
 
     /////////////////////////Exercici 2 Inici//////////////////////////
 
     public static void exerciciDos() {
-
-        /* TODO: PREGUNTAR SERGIO QUE ES GENERALITZAR CABECERA */
 
         Random random = new Random();
         LinkedList <Integer> src = new LinkedList<>();
@@ -120,9 +138,18 @@ public class Main {
         }
     }
 
-    /////////////////////////Exercici 2 Final/////////////////////////
+    /*
+    b) Generaliza la cabecera de la función anterior al máximo utilizando comodines.
+    public static <E> void modifyPrefix(LinkedList<? super E> src, LinkedList<? super E> tfg)  {
 
-    /////////////////////////Exercici 3 Inici////////////////////////
+        Ja que necessitem modificar les llistes utilitzaem el comodí super.
+    }
+
+     */
+
+                /////////////////////////Exercici 2 Final/////////////////////////
+
+                     /////////////////////////Exercici 3 Inici////////////////////////
 
     /*
       La implementació del mètode "equals()" és incorrecte ja que en aquest mètode comparem atributs que
