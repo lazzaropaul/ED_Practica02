@@ -50,7 +50,7 @@ public class Department<E> {
 
     public Person getHead() {
 
-        Iterator<Person> it = objectList.iterator();
+        Iterator<? extends Person> it = objectList.iterator();
         Person jefeDept = null;
 
         boolean jefeFound = false;

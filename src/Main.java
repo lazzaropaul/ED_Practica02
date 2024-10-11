@@ -56,7 +56,7 @@ public class Main {
 
         bossOfEachDepartment(jefesDepartamentos , l_dep);
     }
-    public static void bossOfEachDepartment (List<Person> objectList,
+    public static void bossOfEachDepartment (List<? extends Person> objectList,
                                              List< ? extends Department<Person> > departments){
         Iterator<? extends Department<Person>> itDep = departments.iterator();
         Department dep;
@@ -69,8 +69,8 @@ public class Main {
         }
         infoOfEachBoss(objectList);
     }
-    public static void infoOfEachBoss(List <Person> objectList ) {
-        Iterator<Person> itEng = objectList.iterator();
+    public static void infoOfEachBoss(List <? extends Person> objectList ) {
+        Iterator<? extends Person> itEng = objectList.iterator();
         Person obj;
         System.out.println("La nostra llista d'Enginyers conté:");
         while (itEng.hasNext()){
