@@ -1,17 +1,18 @@
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 //Volem crear una classe que fabriqui departaments
-public class Department {
-    private List<Engineer> engineersList;
+public class Department<E> {
+    private List<Person> objectList;
     private String nameOfDepartment;
     private String IdDepartment;
-    public Department (List<Engineer> engineersList,
+    public Department (List<Person> objectList,
                        String nameOfDepartment, String IdDepartment){
 
          this.nameOfDepartment = nameOfDepartment;
          this.IdDepartment = IdDepartment;
-         this.engineersList = engineersList;
+         this.objectList = objectList;
 
     }
 //
@@ -46,9 +47,11 @@ public class Department {
      * Retorna un Engineer buit quan no hi ha un jefe de dept.
      * @return Engineer jefe del Dept.
      */
-    public Engineer getHead() {
-        Iterator<Engineer> it = engineersList.iterator();
-        Engineer jefeDept = new Engineer();
+
+    public Person getHead() {
+
+        Iterator<Person> it = objectList.iterator();
+        Person jefeDept = null;
 
         boolean jefeFound = false;
         while (it.hasNext() && !jefeFound) {

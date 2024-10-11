@@ -1,24 +1,27 @@
 
-public class Person {
+public abstract class Person {
 
     //Atributs
     private String dni;
+    private String especialidad;
     //Constructor
-    public Person (String dni) {
+    public Person (String dni , String especialidad) {
         this.dni = dni;
+        this.especialidad = especialidad;
     }
+    public Person () {
+        this.dni = "";
+        this.especialidad = "";
+    }
+    //Mètode per poder obtindere atributs de les subclases
+    public abstract void printInfo();
 
     //Utilitzat per obtenir el Dni privat
     public String getDni() {
         return dni;
     }
-
-    //Utilitzat per modificar el Dni per abans fent una validació
-    public void setDni(String dni) {
-        if (dni != null && dni.matches("\\d{8}[A-Za-z]")) {
-            this.dni = dni;
-        } else {
-            throw new IllegalArgumentException("DNI inválido. Debe tener 8 dígitos,  seguidos de una letra.");
-        }
+    public String getEspecialidad() {
+        return especialidad;
     }
+
 }

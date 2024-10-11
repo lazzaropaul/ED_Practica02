@@ -35,56 +35,49 @@ public class Main {
 
     public static void exerciciUn(){
         //Llista vuida que contindrà tots els jefes de departament
-        List<Engineer> jefesDepartamentos = new ArrayList<>();
+        List<Person> jefesDepartamentos = new ArrayList<>();
 
         //Llista d'enginyers
-        List<Engineer> l_eng = new ArrayList<Engineer>();
+        List<Person> l_eng = new ArrayList<>();
         l_eng.add(new Engineer("123456X","Software", "D01"));
         l_eng.add(new Engineer("12345678A", "Informàtic", "D01"));
         l_eng.add(new Engineer("87654321B" , "Jefe", "D01"));
         l_eng.add(new Engineer("47145065F" , "Telecos", "D01"));
 
-        List<Engineer> list_eng = new ArrayList<Engineer>();
+        List<Person> list_eng = new ArrayList<>();
         list_eng.add(new Engineer("12345678x", "Informàtic", "D04" ));
         list_eng.add(new Engineer("98765432S" , "Software", "D04"));
         list_eng.add(new Engineer("12332112A" , "Jefe", "D04"));
 
         //llistat de departaments
-        List<Department> l_dep = new ArrayList<Department>();
-        l_dep.add(new Department(l_eng,"Mates", "D01"));
-        l_dep.add(new Department(list_eng,"Fisica", "D04"));
+        List<Department <Person>> l_dep = new ArrayList<>();
+        l_dep.add(new Department<Person>(l_eng,"Mates", "D01"));
+        l_dep.add(new Department<Person>(list_eng,"Fisica", "D04"));
 
         bossOfEachDepartment(jefesDepartamentos , l_dep);
     }
-    public static void bossOfEachDepartment (List< Engineer > engineersList,
-                                             List<Department> departments){
-        //Llista vuida que contindrà tots els jefes de departament
-        List<Engineer> jefesDepartamentos = new ArrayList<>();
-        Iterator<Department> itDep = departments.iterator();
+    public static void bossOfEachDepartment (List<Person> objectList,
+                                             List< ? extends Department<Person> > departments){
+        Iterator<? extends Department<Person>> itDep = departments.iterator();
         Department dep;
 
         while (itDep.hasNext()){
             dep = itDep.next();
-            engineersList.add(dep.getHead());
+            if (dep.getHead() != null) { //Hi ha un jefe al departament
+                objectList.add(dep.getHead());
+            }
         }
-
-        infoOfEachBoss(engineersList);
+        infoOfEachBoss(objectList);
     }
-    /*
-    TODO ficar paràmetres dins de la funciÓ
-     */
-    public static void infoOfEachBoss(List <Engineer> engineerList ) {
-
-        Iterator<Engineer> itEng = engineerList.iterator();
-        Engineer eng;
+    public static void infoOfEachBoss(List <Person> objectList ) {
+        Iterator<Person> itEng = objectList.iterator();
+        Person obj;
         System.out.println("La nostra llista d'Enginyers conté:");
         while (itEng.hasNext()){
-            eng = itEng.next();
-            System.out.println("Jefe Departament " + eng.getIdDepartment() +
-                    ", Dni: " + eng.getDni());
+            obj = itEng.next();
+            obj.printInfo(); //Metode abstracte de person
         }
     }
-
 
     /////////////////////////Exercici 1 Final/////////////////////////
 
@@ -333,10 +326,10 @@ public class Main {
         • ¿Podemos guardar elementos de tipo Number en un Storage de Integer?
             No
         • ¿Podemos guardar elementos de tipo Integer en un Storage de Number?
-            No
+            Sí
          */
 
-        //Comprovem si Storage funciona correcament
+        //Crearem dos llistes per pasar a Storage
         List <Number> numberList = new ArrayList<>( Arrays.asList(7, 8, 9, 10));
         List <Integer> intList = new ArrayList<>(Arrays.asList(1 ,2 ,3 ,4 ,5));
         //Instanciem dos noves Storage
@@ -346,29 +339,6 @@ public class Main {
         //newNumber.copyTo(newInt);
         newInt.copyTo(newNumber);
 
-        newNumber.addItem(11);
-        System.out.println(newNumber.getItems().toString());
-
-        newInt.addItem(2);
-        System.out.println(newInt.getItems().toString());
-
-        //Veiem que storage si funciona
-
-        //Ara veurem si el sub tipus de Storage, PersonStorage , funciona correctement
-        //Crearem una llista de 2 persones i farem una instancia de PersonStorage
-        Person arnau = new Person("12345678A");
-        Person papa = new Person("87654321B");
-        List<Person> persList = new ArrayList<>(Arrays.asList(arnau, papa));
-        PersonStorage personStorage = new PersonStorage(persList);
-
-        //Comprovarem si el métode copyTo funciona correctement
-        List<Object> objectList = new ArrayList<>();
-        Storage<Object> obj = new Storage<>(objectList);
-        System.out.println(obj.getItems().toString());
-
-        //Observem com hem copiat un element de Person Storage a Storage
-        personStorage.copyTo(obj);
-        System.out.println(obj.getItems().toString());
     }
 
         /////////////////////////Exercici 9 final////////////////////////
@@ -382,6 +352,7 @@ public class Main {
         boolean exit = false;
 
         System.out.println("Benvingut a l'agenda de contactes, tria l'acció a realitzar");
+        System.out.println("1 . Afegir contacte");
         int opcio = sc.nextInt();
         int telf = 0;
         String nom = "";
@@ -410,8 +381,9 @@ public class Main {
                         new Contacte(987987987, "Arnau")
                 ));
         ContactAgenda contactAgenda = new ContactAgenda(contacteList);
-        contactAgenda.getAllContacts(contacteList);
-        contactAgenda.searchContact("Arnau");
+        //contactAgenda.getAllContacts(contacteList);
+        Contacte cont = contactAgenda.searchContact("Arnau");
+        cont.toString();
 
     }
 

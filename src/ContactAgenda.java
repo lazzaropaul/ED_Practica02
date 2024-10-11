@@ -45,13 +45,11 @@ public class ContactAgenda  {
             }
         }
 
-        if(!contactFound){
+        if(!contactFound) {
             System.out.println("Contacte no trobat, es retornarà un contacte buit");
-        } else {
-
         }
-
-        return contactFound ? aux : new Contacte(); //Si no es troba el contacte, retornem un buit, en cas contrari, retornem el contacte trobat (TERNARIA)
+        //return contactFound ? aux : new Contacte(); //Si no es troba el contacte, retornem un buit, en cas contrari, retornem el contacte trobat (TERNARIA)
+        return aux;
     }
     public void deleteContact (String nom) {
         ListIterator<Contacte> listIt = contacteAgenda.listIterator();

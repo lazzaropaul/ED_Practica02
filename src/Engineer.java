@@ -5,27 +5,19 @@ public class Engineer extends Person {
    guardem únicament el id, així el relacionem més tard
     */
     private String IdDepartment;
-    private String especialidad; //ROl
-
-    public Engineer() {
-        super("");
-        this.especialidad = "";
-        this.IdDepartment = "";
-    }
 
     public Engineer (String Dni, String especialidad, String IdDepartment){
-        super(Dni);
-        this.especialidad = especialidad;
+        super(Dni, especialidad);
         this.IdDepartment = IdDepartment;
     }
 
-    public String getEspecialidad() {
-        return especialidad;
+    @Override
+    public void printInfo() {
+        System.out.print("Especialidad: " + getEspecialidad() +
+                            ", DNI: " + getDni() +
+                            ", Departament:  " + getIdDepartment() + "\n")  ;
     }
 
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
 
     public String getIdDepartment() {
         return IdDepartment;
