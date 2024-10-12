@@ -6,74 +6,92 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int opcio = 1;
 
-    while (opcio != 0) {
+        while (opcio != 0) {
 
-        System.out.println("Quin exercici vols comprovar (1 -- 10), prem 0 per sortir");
-        opcio = sc.nextInt();
+            System.out.println("\nQuin exercici vols comprovar (1 -- 10), prem 0 per sortir");
+            opcio = sc.nextInt();
+            System.out.println();
 
-        switch (opcio) {
-            case 0 :
-                System.out.println("Adeu!"); break;
-            case 1 : exerciciUn(); break; // aqui tambe falta algo
-            case 2 : exerciciDos(); break; //Falta generalitzar la capsalera del codi amb comodins wtf
-            case 4 : exerciciQuatre(); break;
-            case 6 : exerciciSis(); break;
-            case 7 : exerciciSet(); break;
-            case 9 : exercici9(); break;
-            case 10: exerciciDeu(); break;
-            case 3 , 5, 8:
-                System.out.println("Exercici teòric"); break;
-            default:
-                System.out.println("Sergioo, introdueix un numero vàlid!");
+            switch (opcio) {
+                case 0:
+                    System.out.println("Adeu!");
+                    break;
+                case 1:
+                    exerciciUn();
+                    break; // aqui tambe falta algo
+                case 2:
+                    exerciciDos();
+                    break; //Falta generalitzar la capsalera del codi amb comodins wtf
+                case 4:
+                    exerciciQuatre();
+                    break;
+                case 6:
+                    exerciciSis();
+                    break;
+                case 7:
+                    exerciciSet();
+                    break;
+                case 9:
+                    exercici9();
+                    break;
+                case 10:
+                    exerciciDeu();
+                    break;
+                case 3, 5, 8:
+                    System.out.println("Exercici teòric");
+                    break;
+                default:
+                    System.out.println("Sergioo, introdueix un numero vàlid!");
+            }
         }
-    }
 
     }
 
 
     /////////////////////////Exercici 1 Inici//////////////////////////////
 
-    public static void exerciciUn(){
-        //Llista vuida que contindrà tots els jefes de departament
-        List<Person> jefesDepartamentos = new ArrayList<>();
+    public static void exerciciUn() {
 
         //Llista d'enginyers
         List<Person> l_eng = new ArrayList<>();
-        l_eng.add(new Engineer("123456X","Software", "D01"));
+        l_eng.add(new Engineer("123456X", "Software", "D01"));
         l_eng.add(new Engineer("12345678A", "Informàtic", "D01"));
-        l_eng.add(new Engineer("87654321B" , "Jefe", "D01"));
-        l_eng.add(new Engineer("47145065F" , "Telecos", "D01"));
+        l_eng.add(new Engineer("87654321B", "Jefe", "D01"));
+        l_eng.add(new Engineer("47145065F", "Telecos", "D01"));
 
         List<Person> list_eng = new ArrayList<>();
-        list_eng.add(new Engineer("12345678x", "Informàtic", "D04" ));
-        list_eng.add(new Engineer("98765432S" , "Software", "D04"));
-        list_eng.add(new Engineer("12332112A" , "Jefe", "D04"));
+        list_eng.add(new Engineer("12345678x", "Informàtic", "D04"));
+        list_eng.add(new Engineer("98765432S", "Software", "D04"));
+        list_eng.add(new Engineer("12332112A", "Jefe", "D04"));
 
         //llistat de departaments
-        List<Department <Person>> l_dep = new ArrayList<>();
-        l_dep.add(new Department<Person>(l_eng,"Mates", "D01"));
-        l_dep.add(new Department<Person>(list_eng,"Fisica", "D04"));
+        List<Department<Person>> l_dep = new ArrayList<>();
+        l_dep.add(new Department<Person>(l_eng, "Mates", "D01"));
+        l_dep.add(new Department<Person>(list_eng, "Fisica", "D04"));
 
-        bossOfEachDepartment(jefesDepartamentos , l_dep);
+        bossOfEachDepartment(l_dep);
     }
-    public static void bossOfEachDepartment (List<? extends Person> objectList,
-                                             List< ? extends Department<Person> > departments){
+
+    public static void bossOfEachDepartment(List<? extends Department<Person>> departments) {
+
+        List<Person> objectList = new ArrayList<>();
         Iterator<? extends Department<Person>> itDep = departments.iterator();
         Department dep;
 
-        while (itDep.hasNext()){
+        while (itDep.hasNext()) {
             dep = itDep.next();
             if (dep.getHead() != null) { //Hi ha un jefe al departament
-                objectList.add(dep.getHead());
+                objectList.add(dep.getHead()); //TODO: Arreglar aquesta linea
             }
         }
         infoOfEachBoss(objectList);
     }
-    public static void infoOfEachBoss(List <? extends Person> objectList ) {
+
+    public static void infoOfEachBoss(List<? extends Person> objectList) {
         Iterator<? extends Person> itEng = objectList.iterator();
         Person obj;
         System.out.println("La nostra llista d'Enginyers conté:");
-        while (itEng.hasNext()){
+        while (itEng.hasNext()) {
             obj = itEng.next();
             obj.printInfo(); //Metode abstracte de person
         }
@@ -101,19 +119,20 @@ public class Main {
 
     /////////////////////////Exercici 1 Final/////////////////////////
 
+
     /////////////////////////Exercici 2 Inici//////////////////////////
 
     public static void exerciciDos() {
 
         Random random = new Random();
-        LinkedList <Integer> src = new LinkedList<>();
-        LinkedList <Integer> trg = new LinkedList<>();
+        LinkedList<Integer> src = new LinkedList<>();
+        LinkedList<Integer> trg = new LinkedList<>();
 
         //Afegirem X posicions dins de la llista, amb N nombres aleatoris.
-        for (int index = 0; index < random.nextInt(10) + 1 ; index++){
+        for (int index = 0; index < random.nextInt(10) + 1; index++) {
             src.add(index, random.nextInt(20));
         }
-        for (int index = 0; index < random.nextInt(10) + 1 ; index++){
+        for (int index = 0; index < random.nextInt(10) + 1; index++) {
             trg.add(index, random.nextInt(20));
         }
 
@@ -131,9 +150,8 @@ public class Main {
     }
 
     public static <E> void modifyPrefix(LinkedList<E> src, LinkedList<E> tfg) {
-
         int min = Math.min(src.size(), tfg.size());
-        for(int i = 0; i < min; i++){
+        for (int i = 0; i < min; i++) {
             tfg.set(i, src.get(i));
         }
     }
@@ -147,9 +165,10 @@ public class Main {
 
      */
 
-                /////////////////////////Exercici 2 Final/////////////////////////
+    /////////////////////////Exercici 2 Final/////////////////////////
 
-                     /////////////////////////Exercici 3 Inici////////////////////////
+
+    /////////////////////////Exercici 3 Inici////////////////////////
 
     /*
       La implementació del mètode "equals()" és incorrecte ja que en aquest mètode comparem atributs que
@@ -182,28 +201,29 @@ public class Main {
 
     /////////////////////////Exercici 3 Final/////////////////////////
 
+
     /////////////////////////Exercici 4 Inici////////////////////////
 
     public static void exerciciQuatre() {
 
         //Inicialitzem una llista d'Integers per omplirla
         List<Integer> lista = Arrays.asList(10, 15, 20, 30, 2, 50);
-        Iterator<Integer> it_integ =lista.iterator();
+        Iterator<Integer> it_integ = lista.iterator();
         Comparator<Integer> cmp = Integer::compare;
         /*
         els '::' es una referencia a un métode estatic que existeix dins la calsse integer
         */
-        boolean allInRange = checkRange(it_integ , cmp, 10 , 50);
+        boolean allInRange = checkRange(it_integ, cmp, 10, 50);
         System.out.println("Tots els numeros son dins el range? " + allInRange);
     }
 
-    public static <E> boolean checkRange (Iterator<E> it , Comparator <E> cmp, E min , E max){
+    public static <E> boolean checkRange(Iterator<E> it, Comparator<E> cmp, E min, E max) {
 
         while (it.hasNext()) {
-            int comparacioMin = cmp.compare(it.next() , min);
-            int comparacioMax = cmp.compare(it.next() , max);
+            int comparacioMin = cmp.compare(it.next(), min);
+            int comparacioMax = cmp.compare(it.next(), max);
 
-            if (comparacioMin < 0  || comparacioMax > 0) {
+            if (comparacioMin < 0 || comparacioMax > 0) {
                 return false;
             }
         }
@@ -211,6 +231,7 @@ public class Main {
     }
 
     /////////////////////////Exercici 4 Final/////////////////////////
+
 
     /////////////////////////Exercici 5 Inici////////////////////////
 
@@ -248,21 +269,21 @@ public class Main {
         No podem cridar a cap mètode ja que Animal és una classe abstracta
     */
 
-
     /////////////////////////Exercici 5 final////////////////////////
 
-    /////////////////////////Exercici 6 Inici////////////////////////
-    public static void exerciciSis (){
 
-        List <Integer> listaInts = Arrays.asList(1,1,1,2,3,3,4,5,2,5,2,5,6);
-        List <String> listaStrings = Arrays.asList("Hola" , "Hol", "Hol" , "Adeu" , "Adeu");
+    /////////////////////////Exercici 6 Inici////////////////////////
+    public static void exerciciSis() {
+
+        List<Integer> listaInts = Arrays.asList(1, 1, 1, 2, 3, 3, 4, 5, 2, 5, 2, 5, 6);
+        List<String> listaStrings = Arrays.asList("Hola", "Hol", "Hol", "Adeu", "Adeu");
         debup(listaStrings);
     }
 
-    public static <E> void debup ( List<E> lista ) {
+    public static <E> void debup(List<E> lista) {
 
         E aux = null;
-        List <E> newList = new ArrayList<>();
+        List<E> newList = new ArrayList<>();
         Iterator<E> it = lista.iterator();
 
         while (it.hasNext()) {
@@ -275,36 +296,36 @@ public class Main {
                 aux = newInt;
             }
         }
-        for(int i = 0; i < newList.size(); i++){
+        for (int i = 0; i < newList.size(); i++) {
             System.out.println(newList.get(i));
         }
     }
 
     /////////////////////////Exercici 6 final////////////////////////
 
+
     /////////////////////////Exercici 7 Inici////////////////////////
 
+    public static void exerciciSet() {
 
-    public static void exerciciSet () {
-
-        List<Integer> list = Arrays.asList(20, 10 , 5 , 13 , 60 , 43, 2, 35);
-        Iterator <Integer> it = list.iterator();
-        List <String> strings = Arrays.asList("Hola" , "pene", "hol");
+        List<Integer> list = Arrays.asList(20, 10, 5, 13, 60, 43, 2, 35);
+        Iterator<Integer> it = list.iterator();
+        List<String> strings = Arrays.asList("Hola", "persiana", "hol");
         //El orden lexicográfico significa que las cadenas se comparan carácter por carácter,
         //basándose en los valores Unicode de los caracteres.
-        Iterator <String> it1 = strings.iterator();
+        Iterator<String> it1 = strings.iterator();
 
-        greaterThan(it , 20);
-        greaterThan(it1 , "hola");
+        greaterThan(it, 20);
+        greaterThan(it1, "hola");
 
     }
 
-    public static <E extends Comparable <? super E>> List<E> greaterThan (Iterator<E> it, E sample) {
-        List <E> newList = new ArrayList<>();
+    public static <E extends Comparable<? super E>> List<E> greaterThan(Iterator<E> it, E sample) {
+        List<E> newList = new ArrayList<>();
 
         while (it.hasNext()) {
             E aux = it.next();
-            if ( aux.compareTo(sample) > 0  ) { //elementos cuyo valor comparado con sample sea mayor que cero
+            if (aux.compareTo(sample) > 0) { //elementos cuyo valor comparado con sample sea mayor que cero
                 newList.add(aux);
             }
         }
@@ -316,6 +337,7 @@ public class Main {
     }
 
     /////////////////////////Exercici 7 final////////////////////////
+
 
     /////////////////////////Exercici 8 Inici////////////////////////
     /*
@@ -346,9 +368,10 @@ public class Main {
      */
     /////////////////////////Exercici 8 final////////////////////////
 
+
     /////////////////////////Exercici 9 inici////////////////////////
 
-    public static void exercici9 ( ) {
+    public static void exercici9() {
          /*
         • ¿Podemos guardar elementos de tipo Number en un Storage de Integer?
             No
@@ -357,21 +380,22 @@ public class Main {
          */
 
         //Crearem dos llistes per pasar a Storage
-        List <Number> numberList = new ArrayList<>( Arrays.asList(7, 8, 9, 10));
-        List <Integer> intList = new ArrayList<>(Arrays.asList(1 ,2 ,3 ,4 ,5));
+        List<Number> numberList = new ArrayList<>(Arrays.asList(7, 8, 9, 10));
+        List<Integer> intList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
         //Instanciem dos noves Storage
-        Storage <Number> newNumber = new Storage<>(numberList);
-        Storage <Integer> newInt = new Storage<>(intList);
+        Storage<Number> newNumber = new Storage<>(numberList);
+        Storage<Integer> newInt = new Storage<>(intList);
 
         //newNumber.copyTo(newInt);
         newInt.copyTo(newNumber);
 
     }
 
-        /////////////////////////Exercici 9 final////////////////////////
+    /////////////////////////Exercici 9 final////////////////////////
+
 
     /////////////////////////Exercici 10 final////////////////////////
-    public static void exerciciDeu () {
+    public static void exerciciDeu() {
 
         ContactAgenda contactes = new ContactAgenda();
 
@@ -379,40 +403,66 @@ public class Main {
         boolean exit = false;
 
         System.out.println("Benvingut a l'agenda de contactes, tria l'acció a realitzar");
-        System.out.println("1 . Afegir contacte");
-        int opcio = sc.nextInt();
+        int opcio = 0;
         int telf = 0;
         String nom = "";
 
-        while(opcio != 0 && !exit){
-            switch(opcio){
+        do { //Do while perquè s'executa encara que inicialitzem "opcio" amb 0
+            System.out.println("1 . Afegir contacte");
+            System.out.println("2 . Mostrar tots els contactes");
+            System.out.println("3 . Buscar un contacte");
+            System.out.println("4 . Eliminar un contacte");
+            System.out.println("0 . Sortir");
+
+            opcio = sc.nextInt();
+
+            switch (opcio) {
                 case 0:
-                    exit = true;
+                    System.out.println("A reveure!");
                     break;
+
                 case 1:
-                    System.out.println("Introdueix el telf");
+                    System.out.println("Introdueix el telefon");
                     telf = sc.nextInt();
-                    sc.nextLine();
+
+                    sc.nextLine();  //Netejem el buffer del Scanner
+
                     System.out.println("Introdueix el nom");
                     nom = sc.nextLine();
+
                     contactes.addContact(telf, nom);
                     break;
+
+                case 2:
+                    contactes.getAllContacts();
+                    break;
+
+                case 3:
+                    System.out.println("Introdueix el nom del contacte a buscar");
+                    sc.nextLine();
+                    nom = sc.nextLine();
+
+                    if(!contactes.searchContact(nom)){
+                        System.out.println("No s'ha trobat cap contacte amb el nom " + nom);
+                    };
+                    break;
+
+                case 4:
+                    System.out.println("Introdueix el nom del contacte a eliminar");
+                    sc.nextLine();
+                    nom = sc.nextLine();
+
+                    contactes.deleteContact(nom);
+                    break;
+
+                default:
+                    System.out.println("No s'ha trobat la opció introduida, introdueix una opció vàlida");
             }
-        }
 
-        List<Contacte> contacteList = new ArrayList<>(
-                Arrays.asList(
-                        new Contacte(987987987, "Arnau"),
-                        new Contacte(947968179, "Pol"),
-                        new Contacte(912345678, "Ibai"),
-                        new Contacte(987987987, "Arnau")
-                ));
-        ContactAgenda contactAgenda = new ContactAgenda(contacteList);
-        //contactAgenda.getAllContacts(contacteList);
-        Contacte cont = contactAgenda.searchContact("Arnau");
-        cont.toString();
+            System.out.println();
 
+        } while (opcio != 0);
+
+        /////////////////////////Exercici 10 final////////////////////////
     }
-
-    /////////////////////////Exercici 10 final////////////////////////
 }

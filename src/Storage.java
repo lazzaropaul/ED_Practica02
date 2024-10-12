@@ -14,17 +14,21 @@ public class Storage<T> {
         itemsList.add(item);
         System.out.println("Nou item afeigit a la llista correctement");
     }
+
     public List<T> getItems () {
         //Retorna la llista d'elements de la clase storage
         System.out.println("Tots els elements de la llista:");
         return itemsList;
     }
+
     public void copyTo (Storage <? super T> otherStorage) {
         //otherStorage.setItemsList(this.itemsList);
         List <? super T> otherList = otherStorage.getItemsList();
         otherList.addAll(this.itemsList);
     }
+
     public List<T> getItemsList() {
         return itemsList;
     }
+
 }

@@ -10,30 +10,27 @@ public class ContactAgenda  {
         contacteAgenda = new ArrayList<Contacte>();
     }
 
-
     public ContactAgenda (List<Contacte> contacteAgenda) {
         this.contacteAgenda = contacteAgenda;
     }
 
     public void addContact (int telf, String name) {
         //Fer servit métode buscar contacto
-        Contacte newContact = new Contacte();
-        if(searchContact(name).equals(newContact)){
-            System.out.println("El contacte ja existeix");
-        } else {
-            newContact.setTelf(telf);
-            newContact.setNom(name);
+        if(!searchContact(name)){
+            Contacte newContact = new Contacte(telf,name);
             contacteAgenda.add(newContact);
             System.out.println(newContact);
+        } else {
+            System.out.println("El contacte ja existeix, no es pot afegir");
         }
     }
 
-    public void getAllContacts (List<Contacte> contactsList) {
-        Iterator<Contacte> contacteIt = contactsList.iterator();
-        contacteIt.forEachRemaining(System.out::println); //Crida al metode toString de la classe Contacte
+    public void getAllContacts () {
+        Iterator<Contacte> contacteIt = this.contacteAgenda.iterator();
+        contacteIt.forEachRemaining(System.out::println); //Automàticament, crida al mètode toString de la classe Contacte
     }
 
-    public Contacte searchContact (String nom) {
+    public boolean searchContact (String nom) {
         ListIterator<Contacte> listIt = contacteAgenda.listIterator();
         boolean contactFound = false;
         Contacte aux = new Contacte();
@@ -42,14 +39,11 @@ public class ContactAgenda  {
             aux = listIt.next();
             if(aux.getNom().equals(nom)){
                 contactFound = true;
+                System.out.println(aux);
             }
         }
 
-        if(!contactFound) {
-            System.out.println("Contacte no trobat, es retornarà un contacte buit");
-        }
-        //return contactFound ? aux : new Contacte(); //Si no es troba el contacte, retornem un buit, en cas contrari, retornem el contacte trobat (TERNARIA)
-        return aux;
+        return contactFound;
     }
     public void deleteContact (String nom) {
         ListIterator<Contacte> listIt = contacteAgenda.listIterator();
@@ -59,11 +53,12 @@ public class ContactAgenda  {
             if(listIt.next().getNom().equals(nom)){
                 contactFound = true;
                 listIt.remove();
+                System.out.println("Contacte eliminat amb exit");
             }
         }
 
         if(!contactFound){
-            System.out.println("Contacte no trobat, es retornarà un contacte buit");
+            System.out.println("Contacte no trobat");
         }
 
     }

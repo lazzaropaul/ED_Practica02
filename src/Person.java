@@ -1,18 +1,19 @@
 
 public abstract class Person {
 
-    //Atributs
     private String dni;
     private String especialidad;
-    //Constructor
+
     public Person (String dni , String especialidad) {
         this.dni = dni;
         this.especialidad = especialidad;
     }
+
     public Person () {
         this.dni = "";
         this.especialidad = "";
     }
+
     //Mètode per poder obtindere atributs de les subclases
     public abstract void printInfo();
 
@@ -20,6 +21,7 @@ public abstract class Person {
     public String getDni() {
         return dni;
     }
+
     public String getEspecialidad() {
         return especialidad;
     }
